@@ -152,5 +152,12 @@ You can run these scripts to see how the rate-limiting mechanism responds to dif
 ├── index.js              # Main application entry point
 └── docker-compose.yml    # Docker configuration
 ```
+### 📝 Logs
+
+The `logs` folder contains a file named `task_log.txt` that logs all user activities. You can use this file to monitor  user interactions with the API.
+
+
+---
+
 
 Happy coding! 🎉
