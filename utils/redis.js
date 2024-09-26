@@ -12,12 +12,13 @@ let redisInstance;
 
 
 export const getRedisInstance = () => {
-    if (!redisInstance && !cluster.isPrimary) {
-        redisInstance = new Redis({
-            host: 'redis',
-            port: 6379,
-          });
-        console.log("Redis instance created")
-    }
-    return redisInstance;
+
+        if (!redisInstance && !cluster.isPrimary) {
+            redisInstance = new Redis({
+                host: 'redis',
+                port: 6379,
+              });
+            console.log("Redis instance created")
+        }
+        return redisInstance;
 };

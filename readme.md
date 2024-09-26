@@ -1,3 +1,4 @@
+
 # 🚀 My Node.js API
 
 Welcome to **My Node.js API**! This project provides a simple and efficient API that you can run using Docker or manually with Node.js. Follow the instructions below to get the server up and running.
@@ -8,7 +9,6 @@ Welcome to **My Node.js API**! This project provides a simple and efficient API 
 - **Rate Limiting**: Ensures controlled task processing for users.
 - **Task Queueing**: Manages tasks effectively in a Redis queue.
 - **Fast & Lightweight**: Built with Node.js and Redis for performance.
-
 
 ---
 
@@ -21,7 +21,6 @@ Before you start, ensure you have the following installed on your machine:
 - No process running on port 5000 
 
 ---
-
 
 ## 🚀 Getting Started
 
@@ -38,14 +37,27 @@ Make sure you're in the project root directory and run:
 npm install
 ```
 
-### 3. Start the Server
+### 3. Update Redis Configuration (For Localhost)
+
+If you're running Redis locally and not through Docker, go to the `utils/redis.js` file. Replace the Redis instance configuration:
+
+```javascript
+redisInstance = new Redis({
+  host: 'localhost', // Change this from 'redis' to 'localhost'
+  port: 6379,
+});
+```
+
+This ensures that the API connects to your local Redis instance.
+
+### 4. Start the Server
 
 Run the following command to start the server:
 ```bash
 node index.js
 ```
 
-### 4. Access the API
+### 5. Access the API
 
 The server will be running at:  
 ```
@@ -148,16 +160,16 @@ You can run these scripts to see how the rate-limiting mechanism responds to dif
 │   ├── oneMinuteLimitTest # Script testing 1.5-second request intervals
 │   ├── oneSecondRateLimitTest # Script testing 300ms request intervals
 │   └── simulateMultipleUser  # Script simulating multiple users
+├── /utils                # Contains utility files like redis.js
 ├── package.json          # Node.js dependencies
 ├── index.js              # Main application entry point
 └── docker-compose.yml    # Docker configuration
 ```
+
 ### 📝 Logs
 
-The `logs` folder contains a file named `task_log.txt` that logs all user activities. You can use this file to monitor  user interactions with the API.
-
+The `logs` folder contains a file named `task_log.txt` that logs all user activities. You can use this file to monitor user interactions with the API.
 
 ---
-
 
 Happy coding! 🎉
